@@ -1,10 +1,19 @@
 {
     "name": "hansschouten/laravel-pagebuilder",
+    "description": "A drag and drop pagebuilder to manage pages in any Laravel project.",
+    "keywords": [
+        "laravel",
+        "pagebuilder"
+    ],
     "authors": [
         {
             "name": "Hans Schouten",
             "email": "hans@falcosolutions.nl"
         }
     ],
-    "require": {}
+    "license": "MIT",
+    "require": {
+        "php": ">=7.0",
+        "HansSchouten/PHPagebuilder": "master"
+    }
 }
