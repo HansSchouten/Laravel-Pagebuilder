@@ -1,0 +1,10 @@
+{
+    "name": "hansschouten/laravel-pagebuilder",
+    "authors": [
+        {
+            "name": "Hans Schouten",
+            "email": "hans@falcosolutions.nl"
+        }
+    ],
+    "require": {}
+}
