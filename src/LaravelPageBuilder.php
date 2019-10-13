@@ -2,6 +2,8 @@
 
 namespace HansSchouten\PageBuilder;
 
-class LaravelPageBuilder
+use PHPageBuilder\PHPageBuilder;
+
+class LaravelPageBuilder extends PHPageBuilder
 {
 }

@@ -2,9 +2,7 @@
 
 namespace HansSchouten\PageBuilder;
 
-use Illuminate\Support\ServiceProvider;
-
-class PageBuilderServiceProvider extends ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
      * Register services.

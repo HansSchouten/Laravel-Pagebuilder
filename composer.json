@@ -5,15 +5,33 @@
         "laravel",
         "pagebuilder"
     ],
+    "homepage": "https://github.com/HansSchouten/Laravel-Pagebuilder",
+    "license": "MIT",
     "authors": [
         {
             "name": "Hans Schouten",
             "email": "hans@falcosolutions.nl"
         }
     ],
-    "license": "MIT",
     "require": {
         "php": ">=7.0",
-        "HansSchouten/PHPagebuilder": "master"
+        "hansschouten/phpagebuilder": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "HansSchouten\\PageBuilder\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "laravel": {
+            "providers": [
+                "HansSchouten\\PageBuilder\\ServiceProvider"
+            ],
+            "aliases": {
+                "PageBuilder": "HansSchouten\\PageBuilder\\Facade"
+            }
+        }
     }
 }
