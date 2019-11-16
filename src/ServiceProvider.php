@@ -11,8 +11,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
-        $configPath = __DIR__ . '/../config/pagebuilder.php';
-        $this->mergeConfigFrom($configPath, 'pagebuilder');
     }
 
     /**
@@ -22,6 +20,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->publishes([
+            __DIR__ . '/../config/pagebuilder.php' => config_path('pagebuilder.php'),
+        ]);
     }
 }
