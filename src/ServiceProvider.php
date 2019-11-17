@@ -23,5 +23,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             __DIR__ . '/../config/pagebuilder.php' => config_path('pagebuilder.php'),
         ]);
+
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
     }
 }
