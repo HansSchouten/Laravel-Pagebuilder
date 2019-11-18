@@ -3,16 +3,16 @@
 return [
     /*
      |--------------------------------------------------------------------------
-     | Project settings
+     | General settings
      |--------------------------------------------------------------------------
      |
-     | Settings related to the project in which the PageBuilder is included.
+     | General settings for configuring the PageBuilder.
      |
      */
-    'project' => [
-        'public_folder' => public_path(),
-        'pagebuilder_url' => '/admin',
+    'general' => [
         'language' => 'en',
+        'assets_url' => '/assets',
+        'uploads_url' => '/uploads'
     ],
 
     /*
@@ -33,23 +33,24 @@ return [
             'password'  => env('DB_PASSWORD'),
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
-            'prefix'    => 'pagebuilder_',
+            'prefix'    => 'pagebuilder__',
         ],
         'uploads_folder' => storage_path('app/pagebuilder/uploads')
     ],
 
     /*
      |--------------------------------------------------------------------------
-     | Login settings
+     | Auth settings
      |--------------------------------------------------------------------------
      |
-     | By default a login class is provided which checks for the credentials
-     | configured in this setting block.
+     | By default an authentication class is provided which checks for the
+     | credentials configured in this setting block.
      |
      */
-    'login' => [
+    'auth' => [
         'use_login' => true,
-        'class' => PHPageBuilder\Modules\Login\Login::class,
+        'class' => PHPageBuilder\Modules\Auth\Auth::class,
+        'url' => '/admin/auth',
         'username' => 'admin',
         'password' => 'changethispassword'
     ],
@@ -65,6 +66,7 @@ return [
     'website_manager' => [
         'use_website_manager' => true,
         'class' => PHPageBuilder\Modules\WebsiteManager\WebsiteManager::class,
+        'url' => '/admin'
     ],
 
     /*
@@ -77,6 +79,7 @@ return [
      */
     'pagebuilder' => [
         'class' => PHPageBuilder\Modules\GrapesJS\PageBuilder::class,
+        'url' => '/admin/pagebuilder'
     ],
 
     /*
@@ -88,7 +91,7 @@ return [
      |
      */
     'page' => [
-        'class' => PHPageBuilder\Page::class,
+        'class' => PHPageBuilder\Page::class
     ],
 
     /*
@@ -104,7 +107,7 @@ return [
     'themes' => [
         'folder' => base_path('themes'),
         'folder_url' => '/themes',
-        'active_theme' => 'demo',
+        'active_theme' => 'demo'
     ],
 
     /*
