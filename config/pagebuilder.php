@@ -79,7 +79,10 @@ return [
      */
     'pagebuilder' => [
         'class' => PHPageBuilder\Modules\GrapesJS\PageBuilder::class,
-        'url' => '/admin/pagebuilder'
+        'url' => '/admin/pagebuilder',
+        'actions' => [
+            'back' => '/admin'
+        ]
     ],
 
     /*
@@ -96,7 +99,7 @@ return [
 
     /*
      |--------------------------------------------------------------------------
-     | Themes settings
+     | Theme settings
      |--------------------------------------------------------------------------
      |
      | PageBuilder requires a themes folder in which for each theme the individual
@@ -104,7 +107,8 @@ return [
      | containing a view, model (optional) and controller (optional).
      |
      */
-    'themes' => [
+    'theme' => [
+        'class' => PHPageBuilder\Theme::class,
         'folder' => base_path('themes'),
         'folder_url' => '/themes',
         'active_theme' => 'demo'
