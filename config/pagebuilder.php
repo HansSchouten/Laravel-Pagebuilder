@@ -123,6 +123,7 @@ return [
      |
      */
     'router' => [
-        'class' => PHPageBuilder\Modules\Router\DatabasePageRouter::class
+        'class' => PHPageBuilder\Modules\Router\DatabasePageRouter::class,
+        'use_router' => true
     ],
 ];
