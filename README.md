@@ -11,4 +11,5 @@ Follow these steps to install Laravel Pagebuilder in your project:
 - `composer require hansschouten/laravel-pagebuilder`
 - `php artisan vendor:publish`
 - Update the configuration in `config/pagebuilder.php`
+- `php artisan migrate`
 - Visit [the original repository](https://github.com/HansSchouten/PHPagebuilder#create-a-theme) for info on how to create a theme
