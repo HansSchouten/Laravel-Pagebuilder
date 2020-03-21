@@ -9,7 +9,13 @@ Laravel Pagebuilder is built on [PHPageBuilder](https://github.com/HansSchouten/
 
 Follow these steps to install Laravel Pagebuilder in your project:
 - `composer require hansschouten/laravel-pagebuilder`
-- `php artisan vendor:publish`
+- `php artisan vendor:publish --provider="HansSchouten\LaravelPageBuilder\ServiceProvider" --tag=config`
 - Update the configuration in `config/pagebuilder.php`
 - `php artisan migrate`
-- Visit [the original repository](https://github.com/HansSchouten/PHPagebuilder#create-a-theme) for info on how to create a theme
+
+Next, you can publish the demo theme:
+- `php artisan vendor:publish --provider="HansSchouten\LaravelPageBuilder\ServiceProvider" --tag=demo-theme`
+
+Now you are able to login via `/admin` with `admin` and `changethispassword` (the admin URL and credentials can be changed in the pagebuilder config file).
+
+Visit the [PHPageBuilder repository](https://github.com/HansSchouten/PHPagebuilder#create-a-theme) for detailed information on how to develop themes.
