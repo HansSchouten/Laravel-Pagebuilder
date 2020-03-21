@@ -2,6 +2,8 @@
 
 namespace HansSchouten\LaravelPageBuilder;
 
+use HansSchouten\LaravelPageBuilder\Commands\CreateTheme;
+
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
     /**
@@ -22,6 +24,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
         $this->loadMigrationsFrom(__DIR__ . '/../migrations');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                CreateTheme::class,
+            ]);
+        }
 
         $this->publishes([
             __DIR__ . '/../config/pagebuilder.php' => config_path('pagebuilder.php'),

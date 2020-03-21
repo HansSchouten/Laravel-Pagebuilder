@@ -13,7 +13,10 @@ Follow these steps to install Laravel Pagebuilder in your project:
 - Update the configuration in `config/pagebuilder.php`
 - `php artisan migrate`
 
-Next, you can publish the demo theme:
+Next, you need to create a theme:
+- `php artisan pagebuilder:create-theme [name here]`
+
+.. or publish the demo theme:
 - `php artisan vendor:publish --provider="HansSchouten\LaravelPageBuilder\ServiceProvider" --tag=demo-theme`
 
 Now you are able to login via `/admin` with `admin` and `changethispassword` (the admin URL and credentials can be changed in the pagebuilder config file).
