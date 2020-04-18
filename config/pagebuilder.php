@@ -72,6 +72,18 @@ return [
 
     /*
      |--------------------------------------------------------------------------
+     | Website settings
+     |--------------------------------------------------------------------------
+     |
+     | By default a setting class is provided for accessing website settings.
+     |
+     */
+    'setting' => [
+        'class' => PHPageBuilder\Setting::class
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
      | PageBuilder settings
      |--------------------------------------------------------------------------
      |
@@ -95,7 +107,10 @@ return [
      |
      */
     'page' => [
-        'class' => PHPageBuilder\Page::class
+        'class' => PHPageBuilder\Page::class,
+        'translation' => [
+            'class' => PHPageBuilder\PageTranslation::class,
+        ]
     ],
 
     /*
