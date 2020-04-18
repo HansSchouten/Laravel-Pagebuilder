@@ -10,6 +10,7 @@ return [
      |
      */
     'general' => [
+        'base_url' => env('APP_URL'),
         'language' => 'en',
         'assets_url' => '/assets',
         'uploads_url' => '/uploads'
