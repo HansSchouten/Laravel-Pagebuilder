@@ -108,8 +108,11 @@ return [
      */
     'page' => [
         'class' => PHPageBuilder\Page::class,
+        'table' => 'pages',
         'translation' => [
             'class' => PHPageBuilder\PageTranslation::class,
+            'table' => 'page_translations',
+            'foreign_key' => 'page_id',
         ]
     ],
 
@@ -141,5 +144,19 @@ return [
     'router' => [
         'class' => PHPageBuilder\Modules\Router\DatabasePageRouter::class,
         'use_router' => true
+    ],
+
+    /*
+     |--------------------------------------------------------------------------
+     | Class replacements
+     |--------------------------------------------------------------------------
+     |
+     | Allows mapping a class namespace to an alternative namespace,
+     | useful for replacing implementations of specific pagebuilder classes.
+     | Example: PHPageBuilder\UploadedFile::class => Alternative\UploadedFile::class
+     | Important: when overriding a class always extend the original class.
+     |
+     */
+    'class_replacements' => [
     ],
 ];
