@@ -3,6 +3,7 @@
 namespace HansSchouten\LaravelPageBuilder\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
 use Exception;
 
@@ -32,6 +33,7 @@ class CreateTheme extends Command
         $themeName = $this->argument('name');
         $themePath = base_path(config('pagebuilder.theme.folder_url') . '/' . $themeName);
         File::copyDirectory(__DIR__ . '/../../themes/stub', $themePath);
+        Artisan::call('pagebuilder:publish-theme', ['theme' => $themeName]);
     }
 
 }

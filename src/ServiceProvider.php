@@ -3,6 +3,8 @@
 namespace HansSchouten\LaravelPageBuilder;
 
 use HansSchouten\LaravelPageBuilder\Commands\CreateTheme;
+use HansSchouten\LaravelPageBuilder\Commands\PublishDemo;
+use HansSchouten\LaravelPageBuilder\Commands\PublishTheme;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -28,6 +30,8 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 CreateTheme::class,
+                PublishTheme::class,
+                PublishDemo::class,
             ]);
         }
 

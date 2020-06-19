@@ -17,7 +17,7 @@ Next, you need to create a theme:
 - `php artisan pagebuilder:create-theme [name here]`
 
 .. or publish the demo theme:
-- `php artisan vendor:publish --provider="HansSchouten\LaravelPageBuilder\ServiceProvider" --tag=demo-theme`
+- `php artisan pagebuilder:publish-demo`
 
 Now you are able to login via `/admin` with `admin` and `changethispassword` (the admin URL and credentials can be changed in the pagebuilder config file).
 
