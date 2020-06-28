@@ -5,6 +5,8 @@ namespace HansSchouten\LaravelPageBuilder;
 use HansSchouten\LaravelPageBuilder\Commands\CreateTheme;
 use HansSchouten\LaravelPageBuilder\Commands\PublishDemo;
 use HansSchouten\LaravelPageBuilder\Commands\PublishTheme;
+use PHPageBuilder\PHPageBuilder;
+use Exception;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
@@ -21,6 +23,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      * Bootstrap services.
      *
      * @return void
+     * @throws Exception
      */
     public function boot()
     {
@@ -35,10 +38,15 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
             ]);
         }
 
+        // register singleton phppagebuilder (this ensures phpb_ helpers have the right config without first manually creating a PHPageBuilder instance)
+        $this->app->singleton('phpPageBuilder', function($app) {
+            return new PHPageBuilder(config('pagebuilder'));
+        });
+        $this->app->make('phpPageBuilder');
+
         $this->publishes([
             __DIR__ . '/../config/pagebuilder.php' => config_path('pagebuilder.php'),
         ], 'config');
-
         $this->publishes([
             __DIR__ . '/../themes/demo' => base_path(config('pagebuilder.theme.folder_url') . '/demo'),
         ], 'demo-theme');
