@@ -40,7 +40,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
         // register singleton phppagebuilder (this ensures phpb_ helpers have the right config without first manually creating a PHPageBuilder instance)
         $this->app->singleton('phpPageBuilder', function($app) {
-            return new PHPageBuilder(config('pagebuilder'));
+            return new PHPageBuilder(config('pagebuilder') ?? []);
         });
         $this->app->make('phpPageBuilder');
 
