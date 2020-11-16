@@ -36,7 +36,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 PublishTheme::class,
                 PublishDemo::class,
             ]);
-        } else {
+        } elseif (empty(config('pagebuilder'))) {
             throw new Exception("No PHPageBuilder config found, please run: php artisan vendor:publish --provider=\"HansSchouten\LaravelPageBuilder\ServiceProvider\" --tag=config");
         }
 
