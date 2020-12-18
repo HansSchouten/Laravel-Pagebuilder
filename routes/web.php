@@ -20,13 +20,18 @@ Route::any( config('pagebuilder.general.uploads_url') . '{any}', function() {
 })->where('any', '.*');
 
 
-// handle all website manager requests
-Route::any( config('pagebuilder.website_manager.url') . '{any}', function() {
+if (config('pagebuilder.router.use_website_manager')) {
 
-    $builder = new LaravelPageBuilder(config('pagebuilder'));
-    $builder->handleRequest();
+    // handle all website manager requests
+    Route::any( config('pagebuilder.website_manager.url') . '{any}', function() {
 
-})->where('any', '.*');
+        $builder = new LaravelPageBuilder(config('pagebuilder'));
+        $builder->handleRequest();
+
+    })->where('any', '.*');
+
+}
+
 
 if (config('pagebuilder.router.use_router')) {
 
