@@ -28,7 +28,7 @@ return [
         'use_database' => true,
         'database' => [
             'driver'    => 'mysql',
-            'host'      => env('DB_HOST'),
+            'host'      => env('DB_HOST').':'.env('DB_PORT',3306),
             'database'  => env('DB_DATABASE'),
             'username'  => env('DB_USERNAME'),
             'password'  => env('DB_PASSWORD'),
