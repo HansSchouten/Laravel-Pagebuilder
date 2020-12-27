@@ -3,8 +3,8 @@
 namespace HansSchouten\LaravelPageBuilder\Commands;
 
 use Illuminate\Console\Command;
-use Exception;
 use Illuminate\Support\Facades\Artisan;
+use Exception;
 
 class PublishDemo extends Command
 {
@@ -33,7 +33,10 @@ class PublishDemo extends Command
             '--provider' => 'HansSchouten\LaravelPageBuilder\ServiceProvider',
             '--tag' => 'demo-theme'
         ]);
+
         Artisan::call('pagebuilder:publish-theme', ['theme' => 'demo']);
+
+        $this->info("The demo theme has been published");
     }
 
 }

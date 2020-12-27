@@ -40,7 +40,11 @@ if (config('pagebuilder.router.use_router')) {
     Route::any( '/{any}', function() {
 
         $builder = new LaravelPageBuilder(config('pagebuilder'));
-        $builder->handlePublicRequest();
+        $hasPageReturned = $builder->handlePublicRequest();
+
+        if (request()->path() === '/' && ! $hasPageReturned) {
+            $builder->getWebsiteManager()->renderWelcomePage();
+        }
 
     })->where('any', '.*');
 
