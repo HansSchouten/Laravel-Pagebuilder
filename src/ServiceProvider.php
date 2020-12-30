@@ -6,6 +6,7 @@ use HansSchouten\LaravelPageBuilder\Commands\CreateTheme;
 use HansSchouten\LaravelPageBuilder\Commands\PublishDemo;
 use HansSchouten\LaravelPageBuilder\Commands\PublishTheme;
 use PHPageBuilder\PHPageBuilder;
+use Illuminate\Support\Arr;
 use Exception;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -17,6 +18,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
      */
     public function register()
     {
+        $this->setConfig('pagebuilder');
     }
 
     /**
@@ -52,5 +54,25 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
         $this->publishes([
             __DIR__ . '/../themes/demo' => base_path(config('pagebuilder.theme.folder_url') . '/demo'),
         ], 'demo-theme');
+    }
+
+    /**
+     * 
+     */
+    protected function setConfig($name)
+    {
+        if(!($this->app instanceof CachesConfiguration && $this->app->configurationIsCached())) {
+            $pbConfig = require config_path("{$name}.php");
+            $dbConfig = $this->app['config']->get("database", []);
+
+            $defaultDBDriver = Arr::get($dbConfig, 'default');
+            $dbDriver = Arr::get($pbConfig, 'storage.database.driver', $defaultDBDriver);
+            $dbConfig = $this->app['config']->get("database.connections.{$dbDriver}", []);
+
+            $mergedDBConfig = array_merge($dbConfig, Arr::get($pbConfig, 'storage.database'));
+            Arr::set($pbConfig, 'storage.database', $mergedDBConfig);
+
+            $this->app['config']->set($name, $pbConfig);
+        }
     }
 }
