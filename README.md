@@ -3,7 +3,7 @@
 
 Laravel Pagebuilder is built on [PHPageBuilder](https://github.com/HansSchouten/PHPagebuilder). It integrates the most popular open source drag and drop pagebuilder: [GrapesJS](https://grapesjs.com/). This package is made with customization in mind, allowing you to configure, disable or replace any of its modules.
 
-![PageBuilder](https://user-images.githubusercontent.com/5946444/70818285-97c81a80-1dd3-11ea-84b0-2a6ff3a8765a.png)
+![PageBuilder](https://github.com/HansSchouten/Laravel-Pagebuilder/assets/5946444/63c9186f-e29d-41e0-bb11-565e7b26654b)
 
 ## Installation
 
