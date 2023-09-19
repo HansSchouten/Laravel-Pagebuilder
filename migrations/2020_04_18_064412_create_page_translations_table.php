@@ -18,6 +18,8 @@ class CreatePageTranslationsTable extends Migration
             $table->unsignedInteger('page_id');
             $table->string('locale', 50);
             $table->string('title', 255);
+            $table->string('meta_title', 255);
+            $table->string('meta_description', 255);
             $table->string('route', 255);
             $table->timestamps();
 
