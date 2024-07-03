@@ -15,7 +15,7 @@
     ],
     "require": {
         "php": ">=7.0",
-        "hansschouten/phpagebuilder": "^0.28"
+        "hansschouten/phpagebuilder": "^0.29"
     },
     "autoload": {
         "psr-4": {
