@@ -17,7 +17,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->string('name', 256);
             $table->string('title', 256);
-            $table->string('route', 512)->unique();
+            $table->string('route', 512);
             $table->string('layout', 256);
             $table->longText('data')->nullable();
             $table->timestamps();
