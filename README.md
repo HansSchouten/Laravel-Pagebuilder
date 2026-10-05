@@ -42,3 +42,5 @@ $pageBuilder->customScripts('body', Enhancements::script());
 - **Start-up fix**: PHPageBuilder can call `window.setWaiting()` before it has defined it when the canvas loads quickly; `Enhancements::head()` defines it up front.
 
 `Enhancements::script(['undo' => 'Annuler', ...])` replaces the wording of the toolbar and style groups.
+- **Navigator**: a fourth sidebar tab showing the page as a tree of its sections, columns and widgets, with their real names.
+- **History and drafts** (when the host application supplies `window.phpbEnhancements`): a toolbar button listing saved versions, and a draft kept every minute while there are unsaved changes. See the comment at the top of `resources/editor/enhancements.js` for the fields.

@@ -71,3 +71,84 @@
     top: 0 !important;
     height: 100% !important;
 }
+
+/* Four tabs in the sidebar now: blocks, settings, styles, navigator. */
+.gjs-pn-views .gjs-pn-btn {
+    width: 25% !important;
+}
+
+/* The note beside the history button: when the last draft was kept. */
+#phpb-draft-status {
+    align-self: center;
+    padding: 0 4px 0 6px;
+    color: #9aa5b1;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+#phpb-draft-status:empty {
+    display: none;
+}
+
+/* The list of saved versions, dropping down from the toolbar. */
+#phpb-history {
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    z-index: 6;
+    width: 320px;
+    max-height: 60vh;
+    overflow-y: auto;
+    padding: 6px;
+    border-radius: 6px;
+    background: #222831;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    transform: translateX(-50%);
+}
+
+#phpb-history[hidden] {
+    display: none;
+}
+
+#phpb-history a {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 2px 8px;
+    padding: 8px 10px;
+    border-radius: 4px;
+    color: #d8dde3;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+#phpb-history a:hover,
+#phpb-history a:focus-visible {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+}
+
+#phpb-history .phpb-history-who {
+    color: #9aa5b1;
+}
+
+#phpb-history .phpb-history-tag {
+    margin-left: auto;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 11px;
+}
+
+#phpb-history .phpb-history-current {
+    background: #3b97e3;
+    color: #fff;
+}
+
+#phpb-history .phpb-history-empty {
+    margin: 0;
+    padding: 10px;
+    color: #9aa5b1;
+    font-size: 13px;
+}
