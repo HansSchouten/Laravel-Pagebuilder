@@ -22,3 +22,25 @@ Next, you need to create a theme:
 Now you are able to login via `/admin` with `admin` and `changethispassword` (the admin URL and credentials can be changed in the pagebuilder config file).
 
 Visit the [PHPageBuilder repository](https://github.com/HansSchouten/PHPagebuilder#create-a-theme) for detailed information on how to develop themes.
+
+## Editor enhancements (this fork)
+
+This fork adds a few things to the PHPageBuilder editor without changing PHPageBuilder itself.
+They live in `resources/editor/` and are handed to the page builder through its own
+`customStyle()` / `customScripts()` hooks:
+
+```php
+use HansSchouten\LaravelPageBuilder\Editor\Enhancements;
+
+$pageBuilder->customStyle(Enhancements::style());
+$pageBuilder->customScripts('head', Enhancements::head());
+$pageBuilder->customScripts('body', Enhancements::script());
+```
+
+- **Toolbar** above the canvas: undo, redo, desktop / tablet / phone widths, outlines on or off, preview, view code.
+- **Style panel**: typography (size, weight, line height, letter spacing, colour, decoration, capitals), borders (radius, border) and effects (opacity, shadow).
+- **Start-up fix**: PHPageBuilder can call `window.setWaiting()` before it has defined it when the canvas loads quickly; `Enhancements::head()` defines it up front.
+
+`Enhancements::script(['undo' => 'Annuler', ...])` replaces the wording of the toolbar and style groups.
+- **Navigator**: a fourth sidebar tab showing the page as a tree of its sections, columns and widgets, with their real names.
+- **History and drafts** (when the host application supplies `window.phpbEnhancements`): a toolbar button listing saved versions, and a draft kept every minute while there are unsaved changes. See the comment at the top of `resources/editor/enhancements.js` for the fields.
