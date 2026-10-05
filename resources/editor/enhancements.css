@@ -1,0 +1,73 @@
+/* The toolbar added by enhancements.js: a dark pill floating over the top of the canvas. */
+#phpb-toolbar {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    z-index: 5;
+    display: flex;
+    gap: 10px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: rgba(34, 40, 49, 0.94);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    transform: translateX(-50%);
+}
+
+#phpb-toolbar .phpb-toolbar-group {
+    display: flex;
+    gap: 2px;
+}
+
+#phpb-toolbar .phpb-toolbar-group + .phpb-toolbar-group {
+    padding-left: 10px;
+    border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#phpb-toolbar button {
+    width: 32px;
+    height: 30px;
+    padding: 0;
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    color: #d8dde3;
+    font-size: 15px;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+#phpb-toolbar button:hover,
+#phpb-toolbar button:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    color: #fff;
+    outline: none;
+}
+
+#phpb-toolbar button.active {
+    background: #3b97e3;
+    color: #fff;
+}
+
+#phpb-toolbar button:disabled {
+    opacity: 0.35;
+    cursor: default;
+    background: transparent;
+}
+
+/* Out of the way while previewing. */
+.gjs-editor.gjs-pn-hidden #phpb-toolbar,
+.gjs-preview #phpb-toolbar {
+    display: none;
+}
+
+/* The canvas starts below the toolbar, so the toolbar never covers the top of the page. */
+.gjs-cv-canvas {
+    top: 50px !important;
+    height: calc(100% - 50px) !important;
+}
+
+.gjs-editor.gjs-pn-hidden .gjs-cv-canvas,
+.gjs-preview .gjs-cv-canvas {
+    top: 0 !important;
+    height: 100% !important;
+}
